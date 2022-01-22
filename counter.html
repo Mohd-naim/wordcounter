@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <style>
+        .modal {
+            max-width: 50%;
+            border-radius: 20px;
+            color: #333;
+            font-family: sans-serif;
+            line-height: 1.5;
+
+            padding: 1rem 2rem;
+            box-shadow: 2px 2px 5px 2px rgba(255, 255, 255, 0.5);
+            text-shadow: 2px 2px rgba(255, 255, 255, 0.5);
+
+        }
+
+        h1 {
+            text-shadow: 5px 10px 5px rgba(255, 255, 255, 0.5);
+        }
+
+        @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+            .modal {
+                -webkit-backdrop-filter: blur(5px);
+                backdrop-filter: blur(5px);
+                background-color: #ffffff10;
+                color: rgba(255, 255, 255, 0.95);
+            }
+
+        }
+
+        input {
+            font-size: large;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 10px;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            background-color: #ffffff10;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        html,
+        body {
+            font-family: "Luxurious""Roman";
+            height: 100%;
+            width: 100%;
+            background-image: url("https://media.istockphoto.com/photos/tuscany-lanscape-sunset-time-italy-picture-id1307238688?b=1&k=20&m=1307238688&s=170667a&w=0&h=S6eynqVDVdd3FN5K7j4NfYs04XJNQR5kibdCA8EZno4=");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+        }
+
+        textarea {
+            max-width: 100%;
+            text-transform: capitalize;
+            color: white;
+            font-size: 1.5em;
+            background: rgba(255, 255, 255, 0.0);
+            border: none;
+            scroll-margin-left: 10px;    
+            outline: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="modal">
+            <form name="wordcount">
+
+                <h1>Enter your text in the given text area</h1>
+                <!-- for the textarea -->
+                <textarea name="wordcount2" id="txtarea" cols="60" rows="10"
+                    wrap="virtual"></textarea><br>
+                <!-- for the calculating the words -->
+                <input type="button" value="Calculate words" onclick="count()">
+                <input type="text" name="wordcount3" id="result" size="22"><br>
+
+                <!-- for the calculating the letters -->
+                <input type="button" value="Calculate letters" onclick="countlet()">
+                <input type="text" name="wordcount4" id="result" size="22">
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+        function count() {
+            var formcontent = document.wordcount.wordcount2.value
+            formcontent = formcontent.split(" ")//for spliting the words
+            document.wordcount.wordcount3.value = formcontent.length
+        }
+
+        function countlet() {
+            var formcontent = document.wordcount.wordcount2.value
+            formcontent = formcontent.split("")//for spliting the words
+            document.wordcount.wordcount4.value = formcontent.length
+
+        }
+
+    </script>
+</body>
+
+</html>
